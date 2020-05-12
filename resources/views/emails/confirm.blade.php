@@ -295,18 +295,7 @@ table[name="bmeMainBody"], body {background-color:#ffffff;}
 <table cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td name="bmeBadgeText" style="text-align:left; word-break: break-word;" align="left"><span id="spnFooterText" style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 11px; line-height: 140%;">    
 <br>Este mensaje fue enviado a ti por clientes@cootranshuila.com</span>    
 <br>    
-<br><span style="font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 11px; line-height: 140%;">    
-<a  href="http://clt1129129.benchurl.com/c/su?e=10614E3&c=113AA9&email=w9FEkA2PVNMOMI6CuMrh5ObJ3l0c%2BbwdCJ%2FwYbRnGP0%3D&relid="  style="color:inherit;text-decoration:underline;">Update Profile/Email Address</a>  |     
-<a class=bmefootertext  href="http://clt1129129.benchurl.com/c/f?e=10614E3&c=113AA9&email=w9FEkA2PVNMOMI6CuMrh5ObJ3l0c%2BbwdCJ%2FwYbRnGP0%3D&relid="  style="color:inherit;text-decoration:underline;">Forward Email</a> |     
-<a class=bmefootertext  href="http://clt1129129.benchurl.com/Abuse?e=10614E3&c=113AA9&email=w9FEkA2PVNMOMI6CuMrh5ObJ3l0c%2BbwdCJ%2FwYbRnGP0%3D&relid="  style="color:inherit;text-decoration:underline;">Report Abuse</a>    
-<br></span></td></tr><tr><td name="bmeBadgeImage" style="text-align: left; padding-top: 20px; word-break: break-word;" align="left">    
-<a href="https://www.benchmarkemail.com/es?p=500289" target=""><img    
- src="https://www.benchmarkemail.com/images/es/web4/misc/emailfooter/opt9.png"  border=0 /></a></td></tr></tbody>    
-</table></td></tr></tbody>    
-</table></div></td></tr> </tbody>    
-</table> </td></tr></tbody>    
-</table></td></tr></tbody>    
-</table>    
+<br>
 </body>    
 </html>        
         </div>
