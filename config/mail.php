@@ -40,7 +40,7 @@ return [
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('clientes@cootranshuila.com'),
-            'password' => env('vtxiflgzmqdpiqfx'),
+            'password' => env('dfmajoqemjtjjdmi'),
             'timeout' => null,
             'auth_mode' => null,
         ],
