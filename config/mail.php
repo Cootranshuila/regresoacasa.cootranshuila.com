@@ -42,7 +42,7 @@ return [
             'username' => env('clientes@cootranshuila.com'),
             'password' => env('vtxiflgzmqdpiqfx'),
             'timeout' => null,
-            'auth_mode' => 'plain',
+            'auth_mode' => null,
         ],
 
         'ses' => [
