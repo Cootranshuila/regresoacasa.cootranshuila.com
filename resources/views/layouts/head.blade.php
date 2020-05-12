@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Cootranshuila - Apoyemos Lo Nuestro. Proyecto de apoyo a la region.">
     <meta name="author" content="Cootranshuila Devs">
-    <title>Cootranshuila | #ApoyemosLoNuestro</title>
+    <title>Cootranshuila | #RegresoACasa</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="{{ asset('assets/img/logo-icon.png') }}" type="image/x-icon">
