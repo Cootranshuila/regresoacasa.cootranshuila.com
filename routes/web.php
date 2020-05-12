@@ -15,14 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::post('/registrar-viaje', 'ViajeController@registrar');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/test', function() {
-    dd(Config::get('mail'));
-});

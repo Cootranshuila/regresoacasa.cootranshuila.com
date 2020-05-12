@@ -29,6 +29,8 @@ class CreateProgramacionViajeTable extends Migration
             $table->string('dir_actual', 160);
             $table->string('dir_destino', 960);
             $table->string('file_certificado', 90);
+            $table->string('file_registro_civil', 90)->nullable();
+            $table->string('file_solicitud', 90);
 
             $table->foreignId('user_id')
                 ->constrained()

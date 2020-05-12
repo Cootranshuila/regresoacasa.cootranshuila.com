@@ -35,28 +35,28 @@
                         </ul>
                     </div>
                 @endif
-                @if (isset($success))
+                @if (isset($_GET['success']))
                     
                     <div class="summary">
                         <div class="wrapper" style="padding: 60px 8px !important;">
                             <h3>Gracias por confiar en nosotros</h3>
-                            <p>{{ $success }}</p>
+                            <p>{{ $_GET['success'] }}</p>
                             <p>Por favor revise la bandeja de entrada de su correo electronico.</p>
                         </div>
                         
                         <div class="text-center">
                             <div class="form-group">
-                                <a href="/" class="btn_1">Ver mi negocio publicado</a>
+                                <a href="https://www.cootranshuila.com/" class="btn_1">Aceptar</a>
                             </div>
                         </div>
                     </div>
 
-                @elseif(isset($error))
+                @elseif(isset($_GET['error']))
                     
                     <div class="summary">
                         <div class="wrapper" style="padding: 60px 8px !important;">
                             <h3>Gracias por confiar en nosotros</h3>
-                            <p>{{ $error }}</p>
+                            <p>{{ $_GET['error'] }}</p>
                         </div>
                         
                         <div class="text-center">
@@ -214,6 +214,12 @@
                                     <label for="edad_del_menor">Edad del menor</label>
                                     <input type="text" name="edad_del_menor" id="edad_del_menor" class="form-control d-none">
                                 </div>
+                                <div class="form-group add_bottom_30 d-none" id="div_registro_civil">
+                                    <label>Subir registro civil del menor.<br><small>(Archivos aceptados: .jpg, .png, .jpeg, .pdf - Tamaño Maximo: 2MB)</small></label>
+                                    <div class="fileupload">
+                                        <input type="file" name="file_registro_civil" id="file_registro_civil" class="d-none" accept="image/png,image/jpg,image/jpeg">  {{-- ,application/pdf --}}
+                                    </div>
+                                </div>
 
                                 <div class="form-group add_top_20">
                                     <label for="dir_actual">Direccion Actual</label>
@@ -238,6 +244,13 @@
                                             <input type="file" name="file_certificado" accept="image/png,image/jpg,image/jpeg" required>  {{-- ,application/pdf --}}
                                         </div>
                                     </div>
+                                    <div class="form-group add_bottom_30">
+                                        <label>Subir DECLARACION JURAMENTADA PARA SOLICITUD DE PERMISO ESPECIAL. <a href="{{ asset('assets/docs/DECLARACION JUTAMENTADA PARA SOLICITUD DE PERMISO ESPECIAL.docx') }}" download >(DESCARGAR DOCUMENTO)</a><br><small>(Archivos aceptados: .pdf - Tamaño Maximo: 2MB)</small></label>
+                                        <div class="fileupload">
+                                            <input type="file" name="file_solicitud" accept="application/pdf" required>  {{-- , --}}
+                                        </div>
+                                    </div>
+                                    
                                     <div class="text-center">
                                         <div class="form-group terms">
                                             <label class="container_check">Por favor acepta los <a href="#" data-toggle="modal" data-target="#terms-txt">Terminos y Condiciones</a> antes de enviar

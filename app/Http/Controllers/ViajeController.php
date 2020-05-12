@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\View;
 use App\Mail\ConfirmacionMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -22,9 +25,24 @@ class ViajeController extends Controller
             if ($foto = Viaje::setFoto($request->file_certificado)) {
                 $request->request->add(['fotoName' => $foto]);
 
-                $foto = $request['fotoName'];
+                $name_certificado = $request['fotoName'];
             }
         }
+
+        // Cargar la imagen al Servidor
+        if ($request['file_registro_civil']) {
+            if ($foto = Viaje::setFoto($request->file_registro_civil)) {
+                $request->request->add(['fotoName' => $foto]);
+
+                $name_registro_civil = $request['fotoName'];
+            }
+        } else {
+            $name_registro_civil = NULL;
+        }
+
+        // Subimos al servidor la solicitud juramentada
+        $name_file_solicitud = Str::random(20).'.pdf';
+        Storage::disk('public')->put('docs/solicitud/'.$name_file_solicitud, File::get($request->file('file_solicitud')));
 
         // Buscamos si el Usuario ya esta creado
         $user = User::where('email', $request['email'])->get();
@@ -65,7 +83,9 @@ class ViajeController extends Controller
             'edad_del_menor' => $request['edad_del_menor'],
             'dir_actual' => $request['dir_actual'],
             'dir_destino' => $request['dir_destino'],
-            'file_certificado' => $foto,
+            'file_certificado' => $name_certificado,
+            'file_registro_civil' => $name_registro_civil,
+            'file_solicitud' => $name_file_solicitud,
             'user_id' => $user_id,
         ]);
             
@@ -73,11 +93,11 @@ class ViajeController extends Controller
         if ($new_viaje->save()) {
             $data_mail = ['nombre' => $user_name, 'correo' => $user_email, 'origen' => $new_viaje->ciudad_origen, 'destino' => $new_viaje->ciudad_destino];
 
-            Mail::to($user_email)->send(new ConfirmacionMail);
+            Mail::to($user_email)->send(new ConfirmacionMail($data_mail));
             // dd($data_mail);
-            return view('welcome', ['success' => 'Tu negocio fue registrado corectamente.']);
+            return redirect()->route('welcome', ['success' => 'El registro de programacion de viaje se realizo correctamente.']);
         } else {
-            return view('welcome', ['error' => 'Ocurrio algun problema, por favor intentelo de nuevo en unos minutos o contactese con el soporte tecnico.']);
+            return redirect()->route('welcome', ['error' => 'Ocurrio algun problema, por favor intentelo de nuevo en unos minutos o contactese con el soporte tecnico.']);
         }
     }
 }

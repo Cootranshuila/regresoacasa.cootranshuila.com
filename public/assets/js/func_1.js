@@ -16,9 +16,13 @@ $(document).ready(function () {
 
     $('#menor_edad_si').change(function () {
         $('#edad_del_menor').removeClass('d-none').addClass('required')
+        $('#file_registro_civil').removeClass('d-none').addClass('required')
+        $('#div_registro_civil').removeClass('d-none')
     })
     $('#menor_edad_no').change(function () {
         $('#edad_del_menor').removeClass('required').addClass('d-none')
+        $('#file_registro_civil').removeClass('required').addClass('d-none')
+        $('#div_registro_civil').addClass('d-none')
     })
 })
 

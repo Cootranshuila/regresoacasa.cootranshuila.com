@@ -12,7 +12,7 @@ class Viaje extends Model
     protected $table = 'programacion_viaje';
 
     protected $fillable = [
-        'id', 'tipo_excepcion', 'dpt_origen', 'ciudad_origen', 'dpt_destino', 'ciudad_destino', 'tipo_identificacion', 'numero_identificacion', 'telefono', 'menor_edad', 'edad_del_menor', 'dir_actual', 'dir_destino', 'file_certificado', 'user_id'
+        'id', 'tipo_excepcion', 'dpt_origen', 'ciudad_origen', 'dpt_destino', 'ciudad_destino', 'tipo_identificacion', 'numero_identificacion', 'telefono', 'menor_edad', 'edad_del_menor', 'dir_actual', 'dir_destino', 'file_certificado', 'file_registro_civil', 'file_solicitud', 'user_id'
     ]; 
 
     public static function setFoto($foto) {
