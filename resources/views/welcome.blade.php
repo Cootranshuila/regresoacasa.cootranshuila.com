@@ -12,7 +12,7 @@
                 <!-- /social -->
                 <div>
                     <figure><img src="{{ asset('assets/img/info_graphic_1.svg') }}" alt="" class="img-fluid" width="270" height="270"></figure>
-                    <h2>Formulario para programación de viaje durante aislamiento preventivo obligatorio</h2><br>
+                    <h4 style="color:white">Formulario para programación de viaje durante aislamiento preventivo obligatorio</h4><br>
                     <p>Registra tus datos y te indicaremos las instrucciones y los requisitos para tu VIAJE.</p>
                 </div>
                 <div class="copy">© 2020 Cootranshuila.</div>
