@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Cootranshuila - Apoyemos Lo Nuestro. Proyecto de apoyo a la region.">
+    <meta name="description" content="Cootranshuila - Formulario de programación de viaje con base en el decreto 593 del 2020 art 3ro Numeral 5 en concordancia con la Resolución 498..">
     <meta name="author" content="Cootranshuila Devs">
     <title>Cootranshuila | #RegresoACasa</title>
 
