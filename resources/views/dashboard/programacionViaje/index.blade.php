@@ -63,7 +63,7 @@
                                                 <!--Parte de busqueda de datos-->
                                                 <tr>
                                                     <th colspan="12" class="text-center">
-                                                        <form action="/dashboard/programacion-viaje/get-ciudades" method="post" class="d-inline-block w-50">
+                                                        <form action="/dashboard/programacion-viaje/get-ciudades" method="get" class="d-inline-block w-50">
                                                             @csrf
 
                                                             <div class="row col-12 text-center">

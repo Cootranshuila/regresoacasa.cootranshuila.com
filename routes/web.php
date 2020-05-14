@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::group(['middleware' => ['permission:programacion-viaje|universal']], function () {
         Route::get('/dashboard/programacion-viaje', 'DashboardController@programacionViaje')->name('programacion-viaje');
         Route::get('/dashboard/{id}/programacion-viaje', 'DashboardController@verSolicitud');
-        Route::post('/dashboard/programacion-viaje/get-ciudades', 'DashboardController@getCiudades');
+        Route::get('/dashboard/programacion-viaje/get-ciudades', 'DashboardController@getCiudades');
 
         Route::get('/get-origen', 'DashboardController@getOrigen');
         Route::get('/get-destino', 'DashboardController@getDestino');
