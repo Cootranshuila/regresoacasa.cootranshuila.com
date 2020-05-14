@@ -12,7 +12,6 @@
             <div class="modal-body" id="modal-blade-body">
      
             </div>
-            <textarea name="editor1" id="editor1"></textarea>
         </div>
     </div>
 </div>

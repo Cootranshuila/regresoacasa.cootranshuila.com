@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
     //Grupo de Rutas para el listado de programacion de viaje
     Route::group(['middleware' => ['permission:programacion-viaje|universal']], function () {
         Route::get('/dashboard/programacion-viaje', 'DashboardController@programacionViaje')->name('programacion-viaje');
+        Route::get('/dashboard/programacion-viaje/{id}', 'DashboardController@verSolicitud');
     });
 
 });

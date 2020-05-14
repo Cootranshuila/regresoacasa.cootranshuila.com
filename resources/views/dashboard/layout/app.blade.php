@@ -33,12 +33,13 @@
 
         @yield('content')
 
-        @extends('dashboard.layout.bar-right')
+        @include('dashboard.layout.bar-right')
 
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
+        @include('dashboard.layout.modal')
 
         <!-- JAVASCRIPT -->
         <script src="{{ asset('assets_admin/libs/jquery/jquery.min.js') }}"></script>

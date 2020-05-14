@@ -3,18 +3,18 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box p-3">
-                <a href="index.html" class="logo logo-dark">
+                {{-- <a href="/dashboard" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets_admin/images/logo-sm-dark.png') }}" alt="" height="22">
+                        <img src="{{ asset('assets_admin/images/logo-sm-dark.png') }}" alt="" height="40">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('assets_admin/images/logo-dark.png') }}" alt="" height="40">
                     </span>
-                </a>
+                </a> --}}
 
-                <a href="index.html" class="logo logo-light">
+                <a href="/dashboard" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets_admin/images/logo-sm-light.png') }}" alt="" height="22">
+                        <img src="{{ asset('assets_admin/images/logo-sm-light.png') }}" alt="" height="40">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('assets_admin/images/logo-light.png') }}" alt="" height="40">

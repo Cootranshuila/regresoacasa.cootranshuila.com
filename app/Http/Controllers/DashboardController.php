@@ -24,4 +24,16 @@ class DashboardController extends Controller
         // dd($viajes);
         return view('dashboard.programacionViaje.index', ['viajes' => $viajes]);
     }
+
+    public function verSolicitud($id)
+    {
+        $solicitud = DB::table('programacion_viaje')
+                ->join('users', 'programacion_viaje.user_id', '=', 'users.id')
+                ->select('programacion_viaje.*', 'users.name', 'users.email')
+                ->where('programacion_viaje.id', $id)
+                ->get();
+
+        // dd($viajes);
+        return ['solicitud' => $solicitud];
+    }
 }
