@@ -2708,3 +2708,28 @@ body[data-layout="horizontal"][data-layout-size="boxed"] {
     top: 0;
     -webkit-clip-path: polygon(0% 0%, 40% 0%, 100% 50%, 40% 100%, 0% 100%);
             clip-path: polygon(0% 0%, 40% 0%, 100% 50%, 40% 100%, 0% 100%); }
+
+/*Print css
+===================*/
+@media print {
+  .topbar, .left, .page-title-box, .footer, #page-topbar {
+    display: none;
+  }
+  .wrapper {
+    padding: 0;
+  }
+  .content {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .content-page {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .container-fluid {
+    display: none;
+  }
+  .modal-lg {
+    max-width: 100% !important;
+  }
+}

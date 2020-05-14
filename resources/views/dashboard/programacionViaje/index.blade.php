@@ -50,7 +50,7 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="row p-5">                   
+                                    <div class="row p-xl-5 p-md-3">                   
                                         <div class="table-responsive mb-3" id="Resultados">
                                             <table class="table table-centered table-hover table-bordered mb-0">
                                                 <thead>
@@ -63,14 +63,23 @@
                                                 <!--Parte de busqueda de datos-->
                                                 <tr>
                                                     <th colspan="12" class="text-center">
-                                                        <div class="col-8 mt-2">
-                                                            <div class="input-group mb-3">
-                                                                <input type="text" class="form-control" id="texto" placeholder="Ingrese nombre">
-                                                                <div class="input-group-append">
-                                                                    <span class="input-group-text">Buscar</span>
+                                                        <form action="" method="get" class="d-inline-block w-50">
+                                                            <div class="row col-12 text-center">
+                                                                <div class="styled-select col-5">
+                                                                    <select class="form-control required" id="ciudad_origen" name="ciudad_origen">
+                                                                        <option value="">Ciudad Origen</option>
+                                                                    </select>
                                                                 </div>
-                                                            </div> 
-                                                        </div>
+                                                                <div class="styled-select col-5">
+                                                                    <select class="form-control required" id="ciudad_destino" name="ciudad_destino">
+                                                                        <option value="">Ciudad Destino</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-2">
+                                                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </th>
                                                 </tr>
                                                 <!--Fin parte de busqueda de datos-->
@@ -90,7 +99,7 @@
                                                             <th scope="row">
                                                                 <a href="#">{{ $viaje->id }}</a>
                                                             </th>
-                                                            <td>{{ Str::limit($viaje->name, 15) }}</td>
+                                                            <td>{{ Str::limit($viaje->name, 20) }}</td>
                                                             <td>{{ Str::limit($viaje->tipo_excepcion, 15) }}</td>
                                                             <td>{{ $viaje->ciudad_origen }}</td>
                                                             <td>{{ $viaje->ciudad_destino }}</td>
@@ -113,8 +122,7 @@
                             </div>
                         </div>
 
-                    </div>
-                    <!-- end row -->
+                    </div> <!-- end row -->
 
                 </div> <!-- container-fluid -->
             </div>

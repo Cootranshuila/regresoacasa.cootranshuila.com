@@ -1,7 +1,7 @@
 
 
-<div class="modal fade bs-example-modal-xl" id="modal-blade" tabindex="-1" role="dialog" aria-labelledby="modal-blade-title" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+<div class="modal fade bs-example-modal-lg" id="modal-blade" tabindex="-1" role="dialog" aria-labelledby="modal-blade-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title mt-0" id="modal-blade-title"></h5>

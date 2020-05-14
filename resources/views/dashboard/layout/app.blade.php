@@ -24,7 +24,7 @@
         <!-- Icons Css -->
         <link href="{{ asset('assets_admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="{{ asset('assets_admin/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets_admin/css/app-dark.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 
