@@ -18,7 +18,7 @@ function verSolicitud(id) {
         success: function (data) {
             $("#modal-blade").modal('show')
             $('#modal-blade-title').text('Programación de viaje N° '+data.solicitud[0].id)
-            $('#modal-blade-body').html(`
+            var modal_content = `
                 <div class="print-viaje m-3">
                     <div class="row">
                         <div class="col-12">
@@ -26,19 +26,23 @@ function verSolicitud(id) {
                                 <div class="col-12">
                                     <address>
                                         <strong>Cliente:</strong><br>
-                                        Nombre<br>
-                                        tipo de cedula: cedula<br>
-                                        Telefono<br>
-                                        Correo<br>
-                                        Dir Origen
+                                        `+data.solicitud[0].name+`<br>
+                                        `+data.solicitud[0].tipo_identificacion+`: `+data.solicitud[0].numero_identificacion+`<br>
+                                        `+data.solicitud[0].telefono+`<br>
+                                        `+data.solicitud[0].email+`<br>
+                                        `+data.solicitud[0].dir_actual+`
                                     </address>
                                 </div>
                                 <div class="col-12">
                                     <address>
                                         <strong>Menor de Edad:</strong><br>
-                                        Si - No<br>
-                                        Edad<br>
-                                        file registro
+                                        `+data.solicitud[0].menor_edad+`<br>
+                                        `; if (data.solicitud[0].menor_edad == 'Si') {
+                                            modal_content += `
+                                            Edad: `+data.solicitud[0].edad_del_menor+`<br>
+                                            <a href="/storage/imagenes/certificados/`+data.solicitud[0].file_registro_civil+`" target="_blank" class="btn btn-light waves-effect waves-light">Registro Civil <i class="mdi mdi-download"></i></a>`
+                                        } 
+                                        modal_content += `
                                     </address>
                                 </div>
                             </div>
@@ -46,7 +50,7 @@ function verSolicitud(id) {
                                 <div class="col-12 m-t-30">
                                     <address>
                                         <strong>Tipo de Excepcion:</strong><br>
-                                        excepcion<br>
+                                        `+data.solicitud[0].tipo_excepcion+`<br>
                                     </address>
                                 </div>
                             </div>
@@ -75,9 +79,9 @@ function verSolicitud(id) {
                                             <!-- foreach ($order->lineItems as $line) or some such thing here -->
                                                 <tr>
                                                     <td>1</td>
-                                                    <td class="text-center">$10.99</td>
-                                                    <td class="text-center">1</td>
-                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">`+data.solicitud[0].ciudad_origen+`</td>
+                                                    <td class="text-center">`+data.solicitud[0].ciudad_destino+`</td>
+                                                    <td class="text-center">`+data.solicitud[0].dir_destino+`</td>
                                                     <td class="text-right"><a href="#" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-link"></i></a></td>
                                                 </tr>
                                             </tbody>
@@ -86,8 +90,8 @@ function verSolicitud(id) {
 
                                     <div class="d-print-none row my-5">
                                         <div class="float-left">
-                                            <a href="#" class="btn btn-light waves-effect waves-light">Certificado lugar de residencia <i class="mdi mdi-download"></i></a>
-                                            <a href="#" class="btn btn-light waves-effect waves-light">Declaración Juramentada <i class="mdi mdi-download"></i></a>
+                                            <a href="/storage/imagenes/certificados/`+data.solicitud[0].file_certificado+`" target="_blank" class="btn btn-light waves-effect waves-light">Certificado lugar de residencia <i class="mdi mdi-download"></i></a>
+                                            <a href="/storage/docs/solicitud/`+data.solicitud[0].file_solicitud+`" target="_blank" class="btn btn-light waves-effect waves-light">Declaración Juramentada <i class="mdi mdi-download"></i></a>
                                         </div>
                                     </div>
 
@@ -103,7 +107,8 @@ function verSolicitud(id) {
                         </div>
                     </div>
                 </div>
-            `)
+            `;
+            $('#modal-blade-body').html(modal_content)
         }
     });
     return false;
