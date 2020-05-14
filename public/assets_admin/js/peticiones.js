@@ -1,6 +1,7 @@
 $(document).ready(function () {
     if (window.location.pathname == '/dashboard/programacion-viaje') {
         ciudadOrigen();
+        ciudadDestino();
     }
 });
 
@@ -12,7 +13,7 @@ $.ajaxSetup({
 
 function verSolicitud(id) {
     $.ajax({
-        url: '/dashboard/programacion-viaje/'+id,
+        url: '/dashboard/'+id+'/programacion-viaje',
         type: 'GET',
         success: function (data) {
             $("#modal-blade").modal('show')
@@ -111,13 +112,29 @@ function verSolicitud(id) {
 function ciudadOrigen() {
     var html = '<option value="">Ciudad Origen</option>';
     $.ajax({
-        url: 'https://wscootranshuila.teletiquete.com/WebService/pag_web.php?get_ciudad',
+        url: '/get-origen',
         type: 'GET',
         success: function (data) {
-            data.forEach(dpt => {
-                html += '<option value="'+dpt.municipio+'">'+dpt.municipio+'</option>';
+            var origenes = data.origenes
+            origenes.forEach(origen => {
+                html += '<option value="'+origen.ciudad_origen+'">'+origen.ciudad_origen+'</option>';
             });
             $('#ciudad_origen').html(html)
+        }
+    })
+}
+
+function ciudadDestino() {
+    var html = '<option value="">Ciudad Destino</option>';
+    $.ajax({
+        url: '/get-destino',
+        type: 'GET',
+        success: function (data) {
+            var destinos = data.destinos
+            destinos.forEach(destino => {
+                html += '<option value="'+destino.ciudad_destino+'">'+destino.ciudad_destino+'</option>';
+            });
+            $('#ciudad_destino').html(html)
         }
     })
 }

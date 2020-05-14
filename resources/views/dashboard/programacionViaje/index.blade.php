@@ -63,15 +63,17 @@
                                                 <!--Parte de busqueda de datos-->
                                                 <tr>
                                                     <th colspan="12" class="text-center">
-                                                        <form action="" method="get" class="d-inline-block w-50">
+                                                        <form action="/dashboard/programacion-viaje/get-ciudades" method="post" class="d-inline-block w-50">
+                                                            @csrf
+
                                                             <div class="row col-12 text-center">
                                                                 <div class="styled-select col-5">
-                                                                    <select class="form-control required" id="ciudad_origen" name="ciudad_origen">
+                                                                    <select class="form-control required" id="ciudad_origen" name="ciudad_origen" required onchange="ciudadDestino(this.value)">
                                                                         <option value="">Ciudad Origen</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="styled-select col-5">
-                                                                    <select class="form-control required" id="ciudad_destino" name="ciudad_destino">
+                                                                    <select class="form-control required" id="ciudad_destino" name="ciudad_destino" required>
                                                                         <option value="">Ciudad Destino</option>
                                                                     </select>
                                                                 </div>
