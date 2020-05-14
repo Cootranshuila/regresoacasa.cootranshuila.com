@@ -2,23 +2,31 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', function () { return view('welcome'); })->name('welcome');
 
 Route::post('/registrar-viaje', 'ViajeController@registrar');
 
-Auth::routes();
+// Login Dashboard
+Route::get('/dashboard/login', function () {
+    if (!Auth::check()) {
+        return view('dashboard.login');
+    }
+    return back();
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth.admin']], function () {
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    //Grupo de Rutas para el listado de programacion de viaje
+    Route::group(['middleware' => ['permission:programacion-viaje|universal']], function () {
+        Route::get('/dashboard/programacion-viaje', 'DashboardController@programacionViaje')->name('programacion-viaje');
+    });
+
+});
+
+
+Auth::routes(['register' => false]);
+
+// Route::get('/home', 'HomeController@index')->name('home');
