@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    if (window.location.pathname == '/dashboard/programacion-viaje') {
+    if (window.location.pathname == '/dashboard/programacion-viaje' || window.location.pathname == '/dashboard/programacion-viaje/get-ciudades') {
         ciudadOrigen();
         ciudadDestino();
     }

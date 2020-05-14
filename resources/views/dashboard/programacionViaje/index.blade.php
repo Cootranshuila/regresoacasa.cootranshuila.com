@@ -117,7 +117,7 @@
                                             </table>
                                         </div>
                                         
-                                        {{$viajes->links()}}
+                                        {{$viajes->appends(request()->input())->links()}}
                                         
                                     </div>
                                 </div>
