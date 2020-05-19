@@ -34,7 +34,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group form-group-custom mb-4">
                                                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" required autofocus>
-                                                <label for="email">Usuario</label>
+                                                <label for="email">Usuario (correo)</label>
 
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
