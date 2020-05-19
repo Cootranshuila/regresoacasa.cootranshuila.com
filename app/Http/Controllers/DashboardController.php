@@ -41,7 +41,7 @@ class DashboardController extends Controller
 
             $num_vistos = $vistos->count();
 
-            if ($num_vistos < 10) {
+            if ($num_vistos < 20) {
                 $viajes = DB::table('programacion_viaje')
                     ->join('users', 'programacion_viaje.user_id', '=', 'users.id')
                     ->select('programacion_viaje.*', 'users.name', 'users.email')
@@ -102,7 +102,7 @@ class DashboardController extends Controller
 
             $num_vistos = $vistos->count();
 
-            if ($num_vistos < 10) {
+            if ($num_vistos < 20) {
                 $viajes = DB::table('programacion_viaje')
                     ->join('users', 'programacion_viaje.user_id', '=', 'users.id')
                     ->select('programacion_viaje.*', 'users.name', 'users.email')
