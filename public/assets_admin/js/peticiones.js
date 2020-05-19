@@ -3,6 +3,10 @@ $(document).ready(function () {
         ciudadOrigen();
         ciudadDestino();
     }
+
+    $("#modal-blade").on("hidden.bs.modal", function () {
+        location.reload();
+    });
 });
 
 $.ajaxSetup({
@@ -16,6 +20,7 @@ function verSolicitud(id) {
         url: '/dashboard/'+id+'/programacion-viaje',
         type: 'GET',
         success: function (data) {
+            console.log(data)
             $("#modal-blade").modal('show')
             $('#modal-blade-title').text('Programación de viaje N° '+data.solicitud[0].id)
             var modal_content = `
@@ -37,7 +42,8 @@ function verSolicitud(id) {
                                     <address>
                                         <strong>Menor de Edad:</strong><br>
                                         `+data.solicitud[0].menor_edad+`<br>
-                                        `; if (data.solicitud[0].menor_edad == 'Si') {
+                                        `;
+                                        if (data.solicitud[0].menor_edad == 'Si') {
                                             modal_content += `
                                             Edad: `+data.solicitud[0].edad_del_menor+`<br>
                                             <a href="/storage/imagenes/certificados/`+data.solicitud[0].file_registro_civil+`" target="_blank" class="btn btn-light waves-effect waves-light">Registro Civil <i class="mdi mdi-download"></i></a>`

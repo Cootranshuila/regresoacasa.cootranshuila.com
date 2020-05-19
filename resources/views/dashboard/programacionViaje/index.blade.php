@@ -52,72 +52,86 @@
                                 <div class="card-body">
                                     <div class="row p-xl-5 p-md-3">                   
                                         <div class="table-responsive mb-3" id="Resultados">
+                                            <span class="header-title mt-2">Tiene {{ 10 - $registros }} de 10 registros para hoy</span>
                                             <table class="table table-centered table-hover table-bordered mb-0">
                                                 <thead>
-                                                <tr>
-                                                    <th colspan="12" class="text-center">
-                                                        <div class="d-inline-block icons-sm mr-2"><i class="fas fa-calendar-alt"></i></div>
-                                                        <span class="header-title mt-2">Programacion de viajes enviados por la pagina web</span>
-                                                    </th>
-                                                </tr>
-                                                <!--Parte de busqueda de datos-->
-                                                <tr>
-                                                    <th colspan="12" class="text-center">
-                                                        <form action="/dashboard/programacion-viaje/get-ciudades" method="get" class="d-inline-block w-50">
-                                                            @csrf
+                                                    <tr>
+                                                        <th colspan="12" class="text-center">
+                                                            <div class="d-inline-block icons-sm mr-2"><i class="fas fa-calendar-alt"></i></div>
+                                                            <span class="header-title mt-2">Programacion de viajes enviados por la pagina web</span>
+                                                        </th>
+                                                    </tr>
+                                                    <!--Parte de busqueda de datos-->
+                                                    <tr>
+                                                        <th colspan="12" class="text-center">
+                                                            <form action="/dashboard/programacion-viaje/get-ciudades" method="get" class="d-inline-block w-50">
+                                                                @csrf
 
-                                                            <div class="row col-12 text-center">
-                                                                <div class="styled-select col-5">
-                                                                    <select class="form-control required" id="ciudad_origen" name="ciudad_origen" required onchange="ciudadDestino(this.value)">
-                                                                        <option value="">Ciudad Origen</option>
-                                                                    </select>
+                                                                <div class="row col-12 text-center">
+                                                                    <div class="styled-select col-5">
+                                                                        <select class="form-control required" id="ciudad_origen" name="ciudad_origen" required onchange="ciudadDestino(this.value)">
+                                                                            <option value="">Ciudad Origen</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="styled-select col-5">
+                                                                        <select class="form-control required" id="ciudad_destino" name="ciudad_destino" required>
+                                                                            <option value="">Ciudad Destino</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-2">
+                                                                        <button type="submit" class="btn btn-primary">Buscar</button>
+                                                                        
+                                                                        {{-- @php
+                                                                            if (isset($_GET['ciudad_origen'])) {
+                                                                                echo ('<a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>');
+                                                                            }
+                                                                        @endphp --}}
+                                                                    </div>
                                                                 </div>
-                                                                <div class="styled-select col-5">
-                                                                    <select class="form-control required" id="ciudad_destino" name="ciudad_destino" required>
-                                                                        <option value="">Ciudad Destino</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-2">
-                                                                    <button type="submit" class="btn btn-primary">Buscar</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </th>
-                                                </tr>
-                                                <!--Fin parte de busqueda de datos-->
+                                                            </form>
+                                                        </th>
+                                                    </tr>
+                                                    <!--Fin parte de busqueda de datos-->
                                                     <tr>
                                                         <th scope="col">N°</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Excepcion</th>
                                                         <th scope="col">Origen</th>
                                                         <th scope="col">Destino</th>
-                                                        <th scope="col" width="120px">Telefono</th>
+                                                        <th scope="col" width="120px">Menor Edad</th>
                                                         <th scope="col">Acciones</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($viajes as $viaje)
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#">{{ $viaje->id }}</a>
-                                                            </th>
-                                                            <td>{{ Str::limit($viaje->name, 20) }}</td>
-                                                            <td>{{ Str::limit($viaje->tipo_excepcion, 15) }}</td>
-                                                            <td>{{ $viaje->ciudad_origen }}</td>
-                                                            <td>{{ $viaje->ciudad_destino }}</td>
-                                                            <td>{{ $viaje->telefono }}</td>
-                                                            <td class="text-center">
-                                                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="verSolicitud({{ $viaje->id }})" data-toggle="tooltip" data-placement="top" title="Ver Solicitud">
-                                                                    <i class="mdi mdi-eye"></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
+                                                    @if (isset($viajes['code']))
+                                                        <td class="text-center" height="150px" colspan="7">Ya visualizaste tus 10 registros, buen trabajo. Regresa mañana por 10 mas.</td>
+                                                    @else
+                                                        @foreach ($viajes as $viaje)
+                                                            <tr>
+                                                                <th scope="row">
+                                                                    <a href="#">{{ $viaje->id }}</a>
+                                                                </th>
+                                                                <td>{{ Str::limit($viaje->name, 20) }}</td>
+                                                                <td>{{ Str::limit($viaje->tipo_excepcion, 15) }}</td>
+                                                                <td>{{ $viaje->ciudad_origen }}</td>
+                                                                <td>{{ $viaje->ciudad_destino }}</td>
+                                                                <td>{{ $viaje->menor_edad }}</td>
+                                                                <td class="text-center">
+                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" onclick="verSolicitud({{ $viaje->id }})" data-toggle="tooltip" data-placement="top" title="Ver Solicitud">
+                                                                        <i class="mdi mdi-eye"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
-                                        
-                                        {{$viajes->appends(request()->input())->links()}}
+
+                                        @if ( method_exists($viajes, 'links'))
+                                            {{ $viajes->appends(request()->input())->links() }}
+                                        @endif
                                         
                                     </div>
                                 </div>

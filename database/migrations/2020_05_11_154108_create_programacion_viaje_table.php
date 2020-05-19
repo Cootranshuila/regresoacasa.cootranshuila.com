@@ -32,6 +32,9 @@ class CreateProgramacionViajeTable extends Migration
             $table->string('file_registro_civil', 90)->nullable();
             $table->string('file_solicitud', 90);
 
+            $table->date('visto_at')->nullable();
+            $table->bigInteger('visto_for')->nullable();
+
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');

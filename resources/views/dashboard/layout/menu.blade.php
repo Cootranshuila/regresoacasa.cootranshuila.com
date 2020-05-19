@@ -30,7 +30,7 @@
                 <!-- MENU del Index del Dashboard -->
                 @routeIs('dashboard')
 
-                    @canany(['programacion-viaje', 'universal'])
+                    @canany(['viajes', 'universal'])
                         <li>
                             <a href="{{ route('programacion-viaje') }}" class=" waves-effect">
                                 <div class="d-inline-block icons-sm mr-2"><i class="fas fa-calendar-alt"></i></div>
