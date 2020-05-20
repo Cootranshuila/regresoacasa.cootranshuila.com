@@ -28,6 +28,7 @@ class DashboardController extends Controller
                 ->join('users', 'programacion_viaje.user_id', '=', 'users.id')
                 ->select('programacion_viaje.*', 'users.name', 'users.email')
                 ->whereNull('visto_at')
+                ->orderBy('id', 'desc')
                 ->paginate(10);
         } else {
             $date = Carbon::now('America/Bogota');
@@ -46,6 +47,7 @@ class DashboardController extends Controller
                     ->join('users', 'programacion_viaje.user_id', '=', 'users.id')
                     ->select('programacion_viaje.*', 'users.name', 'users.email')
                     ->whereNull('visto_at')
+                    ->orderBy('id', 'desc')
                     ->limit(10)
                     ->get();
             } else {
@@ -89,6 +91,7 @@ class DashboardController extends Controller
                 ->select('programacion_viaje.*', 'users.name', 'users.email')
                 ->where('ciudad_origen', $request->ciudad_origen)
                 ->where('ciudad_destino', $request->ciudad_destino)
+                ->orderBy('id', 'desc')
                 ->paginate(10);
         } else {
             $date = Carbon::now('America/Bogota');
@@ -109,6 +112,7 @@ class DashboardController extends Controller
                     ->where('ciudad_origen', $request->ciudad_origen)
                     ->where('ciudad_destino', $request->ciudad_destino)
                     ->whereNull('visto_at')
+                    ->orderBy('id', 'desc')
                     ->limit(10)
                     ->get();
             } else {
