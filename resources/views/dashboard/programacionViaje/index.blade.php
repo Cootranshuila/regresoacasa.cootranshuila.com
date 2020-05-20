@@ -52,7 +52,7 @@
                                 <div class="card-body">
                                     <div class="row p-xl-5 p-md-3">                   
                                         <div class="table-responsive mb-3" id="Resultados">
-                                            <span class="header-title mt-2">Tiene {{ 10 - $registros }} de 10 registros para hoy</span>
+                                            <span class="header-title mt-2">Tiene {{ 20 - $registros }} de 20 registros para hoy</span>
                                             <table class="table table-centered table-hover table-bordered mb-0">
                                                 <thead>
                                                     <tr>
