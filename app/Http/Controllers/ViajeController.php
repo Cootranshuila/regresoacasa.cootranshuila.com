@@ -15,8 +15,7 @@ use App\User;
 
 class ViajeController extends Controller
 {
-    public function registrar(Request $request)
-    {
+    public function registrar(Request $request) {
         
         // Cargar la imagen al Servidor
         if (!$request['file_certificado']) {

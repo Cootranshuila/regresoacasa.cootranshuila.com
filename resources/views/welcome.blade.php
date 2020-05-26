@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="form-group add_top_20">
                                     <label for="edad_del_menor">Edad del menor</label>
-                                    <input type="text" name="edad_del_menor" id="edad_del_menor" class="form-control d-none">
+                                    <input type="number" name="edad_del_menor" id="edad_del_menor" class="form-control d-none">
                                 </div>
                                 <div class="form-group add_bottom_30 d-none" id="div_registro_civil">
                                     <label>Subir registro civil del menor.<br><small>(Archivos aceptados: .jpg, .png, .jpeg, .pdf - Tamaño Maximo: 2MB)</small></label>
