@@ -13,7 +13,8 @@
                 <div>
                     <figure><img src="{{ asset('assets/img/info_graphic_1.svg') }}" alt="" class="img-fluid" width="270" height="270"></figure>
                     <h4 style="color:white">Formulario para programación de viaje durante aislamiento preventivo obligatorio</h4><br>
-                    <p>Registra tus datos y te indicaremos las instrucciones y los requisitos para tu VIAJE.</p>
+                    <p>Registra tus datos y te indicaremos las instrucciones y los requisitos para tu VIAJE.</p><br><br>
+                    <p>Señor Usuario, recuerde que estos viajes son Humanitarios, por lo tanto deben llevar en físico los documentos solicitados, de igual manera estos tiquetes no estan sujetos a cambios de fecha ni hora de viaje.</p>
                 </div>
                 <div class="copy">© 2020 Cootranshuila.</div>
             </div>
@@ -42,6 +43,7 @@
                             <h3>Gracias por confiar en nosotros</h3>
                             <p>{{ $_GET['success'] }}</p>
                             <p>Por favor revise la bandeja de entrada de su correo electronico.</p>
+                            <p><a href="https://clyt.mintransporte.gov.co/" target="_blank" class="text-primary"> Es importante llenar el formulario del ministerio de transporte. Clic aqui</a></p>
                         </div>
                         
                         <div class="text-center">
